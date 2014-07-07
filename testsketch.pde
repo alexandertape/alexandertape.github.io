@@ -10,41 +10,68 @@ void bindCsound(PNaClCsound cs) {
 
 Circle[] _circleArr = {};
 int[] notes = {60, 62, 64, 67, 71, 72, 74, 76, 79, 83};
+Preloader p = new Preloader();
 
+class Preloader {
+   String loadingText = "Loading Csound... Only works with Google Chrome";
+   
+   void draw() {
+      fill(#ffffff);
+      textSize(18);
+      text(loadingText, width/2 - textWidth(loadingText)/2, 
+          height/2 - 9);
+   } 
+}
 
 void setup(){
   size(800,800);
   noStroke();
-  smooth();
-  
+  smooth();  
 }
 
 void draw(){
   background(0);
-  for (int i=0; i<_circleArr.length; i++){
-    Circle thisCirc = _circleArr[i];
-    thisCirc.updateMe();
+  
+  if(csound==null){
+    p.draw;
+  }
+  else{
+    for (int i=0; i<_circleArr.length; i++){
+      Circle thisCirc = _circleArr[i];
+      thisCirc.updateMe();
+    }
   }
 }
 
 void mousePressed(){
-  
   drawCircle();
 
    if(csound != null) {
-	  int ranNote = int(random(0,5));
+	  int ranNote = int(random(0,10));
 	  switch(ranNote){
 		case 0:
-      csound.ReadScore("i1 0 2 0.2 60 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 60 0.5"); 
 		case 1:
-      csound.ReadScore("i1 0 2 0.2 62 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 62 0.5"); 
 		case 2:
-      csound.ReadScore("i1 0 2 0.2 64 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 64 0.5"); 
 		case 3:
-      csound.ReadScore("i1 0 2 0.2 67 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 67 0.5"); 
 		case 4:
-      csound.ReadScore("i1 0 2 0.2 71 0.5"); 
-	  }
+                  csound.ReadScore("i1 0 2 0.2 71 0.5"); 
+		case 5:
+                  csound.ReadScore("i1 0 2 0.2 72 0.5"); 
+		case 6:
+                  csound.ReadScore("i1 0 2 0.2 74 0.5"); 
+		case 7:
+                  csound.ReadScore("i1 0 2 0.2 76 0.5"); 
+		case 8:
+                  csound.ReadScore("i1 0 2 0.2 79 0.5"); 
+		case 9:
+                  csound.ReadScore("i1 0 2 0.2 83 0.5"); 
+		case 10:
+                  csound.ReadScore("i1 0 2 0.2 84 0.5"); 
+                }
    }
    
 }
