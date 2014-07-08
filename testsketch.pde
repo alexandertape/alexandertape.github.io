@@ -15,7 +15,7 @@ Preloader p = new Preloader();
 class Preloader {
    String loadingText = "Loading Csound... Only works with Google Chrome";
    
-   void draw() {
+   void drawMe() {
       fill(#ffffff);
       textSize(18);
       text(loadingText, width/2 - textWidth(loadingText)/2, 
@@ -33,7 +33,7 @@ void draw(){
   background(0);
   
   if(csound==null){
-    p.draw;
+    p.drawMe();
   }
   else{
     for (int i=0; i<_circleArr.length; i++){
@@ -50,27 +50,38 @@ void mousePressed(){
 	  int ranNote = int(random(0,10));
 	  switch(ranNote){
 		case 0:
-                  csound.ReadScore("i1 0 2 0.2 60 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 60 0.5");
+                  break; 
 		case 1:
-                  csound.ReadScore("i1 0 2 0.2 62 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 62 0.5");
+                  break;
 		case 2:
                   csound.ReadScore("i1 0 2 0.2 64 0.5"); 
+                  break;
 		case 3:
                   csound.ReadScore("i1 0 2 0.2 67 0.5"); 
+                  break;
 		case 4:
                   csound.ReadScore("i1 0 2 0.2 71 0.5"); 
+                  break;
 		case 5:
                   csound.ReadScore("i1 0 2 0.2 72 0.5"); 
+                  break;
 		case 6:
-                  csound.ReadScore("i1 0 2 0.2 74 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 74 0.5");
+                  break; 
 		case 7:
-                  csound.ReadScore("i1 0 2 0.2 76 0.5"); 
+                  csound.ReadScore("i1 0 2 0.2 76 0.5");
+                  break; 
 		case 8:
                   csound.ReadScore("i1 0 2 0.2 79 0.5"); 
+                  break;
 		case 9:
                   csound.ReadScore("i1 0 2 0.2 83 0.5"); 
+                  break;
 		case 10:
                   csound.ReadScore("i1 0 2 0.2 84 0.5"); 
+                  break;
                 }
    }
    
